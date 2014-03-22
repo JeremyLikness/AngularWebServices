@@ -1,0 +1,16 @@
+﻿<div data-ng-controller="listCtrl as ctrl" data-ng-init="ctrl.listContacts()">
+    <div class="row" data-ng-if="ctrl.successMsg !== ''">
+        <span class="alert-success">{{ctrl.successMsg}}</span>
+    </div>
+    <div class="row" data-ng-if="ctrl.errorMsg !== ''">
+        <span class="alert-danger">{{ctrl.errorMsg}}</span>
+    </div>
+    <div class="row"          
+         data-ng-repeat="contact in ctrl.contacts | orderBy:'lastName'">
+        <span title="Created on {{contact.created | date:'shortDate'}} at {{contact.created | date:'shortTime'}} and last modified on {{contact.modified | date:'shortDate'}} at {{contact.modified | date:'shortTime'}}">
+            <a href="" data-ng-click="ctrl.delete(contact)"><span class="glyphicon glyphicon-trash"></span></a>&nbsp;
+            {{contact.lastName}}, {{contact.firstName}}&nbsp;
+            <a href="" data-ng-click="ctrl.swap(contact)"><span class="glyphicon glyphicon-retweet"></span></a>
+        </span>
+    </div>
+</div>

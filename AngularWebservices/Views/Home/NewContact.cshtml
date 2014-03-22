@@ -1,0 +1,21 @@
+﻿<form data-ng-controller="newCtrl as ctrl" name="newUser" novalidate>
+    <div class="col-md-12" data-ng-if="newUser.$pristine && ctrl.success">
+        <span class="alert-success">The user was added with id of {{ctrl.id}}.</span>
+    </div>
+    <div class="col-md-12" data-ng-if="newUser.$dirty && ctrl.error">
+        <span class="alert-danger">An error occurred. Please try again or contact the administrator.</span>
+    </div>
+    <div class="col-md-12 form-group">
+        <label class="label label-default" data-ng-class="{'label-danger': newUser.firstName.$invalid}" for="firstName">First Name:</label>
+        <input class="input-sm" placeholder="Enter first name" data-ng-model="ctrl.firstName" required="" name="firstName"/>
+        <span class="text-danger" data-ng-show="newUser.$dirty && newUser.firstName.$invalid">First Name is Required</span>
+    </div>
+    <div class="col-md-12 form-group">
+        <label class="label label-default" data-ng-class="{'label-danger': newUser.lastName.$invalid}" for="lastName">Last Name:</label>
+        <input class="input-sm" placeholder="Enter last name" data-ng-model="ctrl.lastName" required="" name="lastName"/>
+        <span class="text-danger" data-ng-show="newUser.$dirty && newUser.lastName.$invalid">Last Name is Required</span>
+    </div>
+    <div class="col-md-12">
+        <button class="btn btn-primary" data-ng-disabled="newUser.$invalid" data-ng-click="ctrl.addContact()">Add Contact</button>
+    </div>
+</form>

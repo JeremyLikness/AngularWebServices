@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link type="text/css" rel="stylesheet" href="~/Content/bootstrap.css"/>
+    <link type="text/css" rel="stylesheet" href="~/Content/bootstrap-theme.css"/>
+    <title>@ViewBag.Title</title>
+    <script src="~/Scripts/jquery-1.9.1.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="~/Scripts/angular.js"></script>
+</head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <img src="~/Content/WintellectNOW-banner.jpg" class="pull-left"/>
+                <img src="~/Content/JeremyLikness75x75.png" alt="Jeremy Likness" width="75"
+                     height="75" class="pull-left" style="margin-top: 10px;"/>
+                <h1 class="pull-left">&nbsp;Angular Web Services</h1>
+            </div>
+        </div>
+        <div>
+            @RenderBody()
+        </div>
+        @RenderSection("scripts", required: false)
+    </body>
+</html>
