@@ -69,5 +69,5 @@
 
     Service.$inject = ['$http', '$q'];
 
-    app.service("httpService", Service);
-})(angular.module("myApp"), "/api/contacts/")
+    app.service("contactService", Service);
+})(angular.module("myApp.services", []), "/api/contacts/")

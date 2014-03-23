@@ -1,18 +1,19 @@
 ﻿@{
-    ViewBag.Title = "$http";
+    ViewBag.Title = "$resource";
 }
 <div data-ng-app="myApp" class="container">
     <div class="row">&nbsp;</div>
-    <div class="row h1">$http Example</div>
+    <div class="row h1">$resource Example</div>
     <div class="row">&nbsp;</div>
     <div class="row" data-ng-include="'/home/NewContact'"></div>
     <div class="row">&nbsp;</div>    
     <div class="row" data-ng-include="'/home/ListContacts'"></div>
 </div>
 @section scripts {
+    <script src="~/Scripts/angular-resource.js"></script>
     <script src="~/Scripts/app/main.js"></script>
     <script src="~/Scripts/app/services/myInterceptor.js"></script>
-    <script src="~/Scripts/app/services/httpContactService.js"></script>
+    <script src="~/Scripts/app/services/resourceContactService.js"></script>
     <script src="~/Scripts/app/controllers/newCtrl.js"></script>
     <script src="~/Scripts/app/controllers/listCtrl.js"></script>
 }

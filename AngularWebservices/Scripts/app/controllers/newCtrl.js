@@ -1,7 +1,7 @@
 ﻿(function(app) {
 
-    function Controller(httpService, $scope) {
-        this.httpService = httpService;
+    function Controller(contactService, $scope) {
+        this.contactService = contactService;
         this.$scope = $scope;
         this.error = false;
         this.success = false;
@@ -11,7 +11,7 @@
         var _this = this;
         this.success = false;
         this.error = false;
-        this.httpService.addContact({
+        this.contactService.addContact({
             firstName: this.firstName,
             lastName: this.lastName
         }).then(function (newContact) {
@@ -26,7 +26,7 @@
             });
     };
 
-    Controller.$inject = ['httpService', '$scope'];
+    Controller.$inject = ['contactService', '$scope'];
 
     app.controller("newCtrl", Controller);
 

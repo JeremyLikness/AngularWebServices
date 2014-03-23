@@ -1,11 +1,11 @@
 ﻿(function (app) {
 
-    function Controller(httpService) {
+    function Controller(contactService) {
         var _this = this;
-        this.httpService = httpService;
+        this.contactService = contactService;
         this.error = false;
         this._reset();
-        httpService.subscribe(function () {
+        contactService.subscribe(function () {
             _this.listContacts();
         });
         this.contacts = [];
@@ -19,7 +19,7 @@
     Controller.prototype.listContacts = function () {
         var _this = this;
         this.error = false;
-        this.httpService.listContacts().then(function (list) {
+        this.contactService.listContacts().then(function (list) {
             _this.contacts = list;            
         },
             function () {
@@ -30,7 +30,7 @@
     Controller.prototype.delete = function (contact) {
         var _this = this;
         this._reset();
-        this.httpService.deleteContact(contact.id)
+        this.contactService.deleteContact(contact.id)
             .then(function () {
                 _this.successMsg = "Deleted contact with id " + contact.id;
             }, function() {
@@ -39,20 +39,23 @@
     };
     
     Controller.prototype.swap = function (contact) {
-        var update = angular.extend({}, contact);
-        var _this = this;
+        var firstName = contact.firstName,
+            lastName = contact.lastName,
+            _this = this;
         this._reset();
-        update.firstName = contact.lastName;
-        update.lastName = contact.firstName; 
-        this.httpService.updateContact(update)
+        contact.firstName = lastName;
+        contact.lastName = firstName;
+        this.contactService.updateContact(contact)
             .then(function () {
                 _this.successMsg = "Swapped first name and last name for contact with id " + contact.id;
             }, function () {
                 _this.errorMsg = "There was an error updating the contact.";
+                contact.firstName = firstName;
+                contact.lastName = lastName;
             });
     };
 
-    Controller.$inject = ['httpService'];
+    Controller.$inject = ['contactService'];
 
     app.controller("listCtrl", Controller);
 

@@ -29,6 +29,17 @@ namespace AngularWebservices.Controllers
         }
 
         /// <summary>
+        /// The resource.
+        /// </summary>
+        /// <returns>
+        /// The <see cref="ActionResult"/>.
+        /// </returns>
+        public ActionResult Resource()
+        {
+            return this.View();
+        }
+
+        /// <summary>
         /// The new contact.
         /// </summary>
         /// <returns>

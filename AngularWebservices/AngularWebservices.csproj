@@ -154,10 +154,13 @@
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
     <Content Include="Scripts\app\controllers\listCtrl.js" />
+    <Content Include="Scripts\app\controllers\newResourceCtrl.js" />
     <Content Include="Scripts\app\main.js" />
     <Content Include="Scripts\app\controllers\newCtrl.js" />
     <Content Include="Scripts\app\manual.js" />
     <Content Include="Scripts\app\services\httpContactService.js" />
+    <Content Include="Scripts\app\services\myInterceptor.js" />
+    <Content Include="Scripts\app\services\resourceContactService.js" />
     <Content Include="Scripts\errors.json" />
     <Content Include="Scripts\angular-touch.min.js.map" />
     <Content Include="Scripts\angular-sanitize.min.js.map" />
@@ -432,6 +435,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\NewContact.cshtml" />
     <Content Include="Views\Home\ListContacts.cshtml" />
+    <Content Include="Views\Home\Resource.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
